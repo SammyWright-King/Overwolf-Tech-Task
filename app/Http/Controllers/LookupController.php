@@ -17,6 +17,11 @@ class LookupController extends Controller
     //this is private because this dependency should only be available within this class
     private $search_repository;
 
+    /**
+     * LookupController constructor.
+     * @param SearchRepository $searchRepository
+     * construct method
+     */
     public function __construct(SearchRepository $searchRepository)
     {
         $this->search_repository = $searchRepository;
@@ -47,7 +52,7 @@ class LookupController extends Controller
             }
         }
         else{
-            return $this->sendErrorResponse("Type not specified!", 400);
+            return $this->sendErrorResponse("Type not specified!");
         }
 
         //We can't handle this - maybe provide feedback?
@@ -89,7 +94,7 @@ class LookupController extends Controller
                 $response = $this->search_repository->lookupMinecraftByUsername($request->username);
 
             }else{
-                return $this->sendErrorResponse('Unrecognized parameter, Kindly include user id or username', 400);
+                return $this->sendErrorResponse('Unrecognized parameter, Kindly include user id or username');
             }
 
             $arr =  $this->sendMinecraftResponse($response); //return response
@@ -98,7 +103,7 @@ class LookupController extends Controller
             return $arr;
 
         }catch(\Exception $e){
-            return $this->sendErrorResponse($e->getMessage(), 500);
+            return $this->sendErrorResponse($e->getMessage());
         }
 
     }
@@ -125,13 +130,13 @@ class LookupController extends Controller
                 // request contains username
 
                 //die("Steam only supports IDs");
-                return $this->sendErrorResponse('Steam only supportd IDs.', 400);
+                return $this->sendErrorResponse('Steam only supportd IDs.');
             }
             else{
-                return $this->sendErrorResponse('Unrecognized parameter, id not specified in request', 400);
+                return $this->sendErrorResponse('Unrecognized parameter, id not specified in request');
             }
         }catch(\Exception $e){
-            return $this->sendErrorResponse($e->getMessage(), 500);
+            return $this->sendErrorResponse($e->getMessage());
         }
 
     }
@@ -157,7 +162,7 @@ class LookupController extends Controller
                 $response = $this->search_repository->lookupXBLByusername($request->username);
 
             }else{
-                return $this->sendErrorResponse('Unrecognized parameter, Kindly include user id or username', 400);
+                return $this->sendErrorResponse('Unrecognized parameter, Kindly include user id or username');
             }
 
             $arr =  $this->sendXBLResponse($response); //return response
@@ -165,7 +170,7 @@ class LookupController extends Controller
 
             return $arr;
         }catch(\Exception $e){
-            return $this->sendErrorResponse($e->getMessage(), 500);
+            return $this->sendErrorResponse($e->getMessage());
         }
     }
 }

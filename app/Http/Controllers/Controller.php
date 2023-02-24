@@ -57,7 +57,7 @@ class Controller extends BaseController
      * @return array
      * send back or display error message
      */
-    public function sendErrorResponse($message, $code)
+    public function sendErrorResponse($message)
     {
         return [
             'status' => false, 'error' => $message
