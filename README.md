@@ -54,3 +54,7 @@ http://localhost:8000/lookup?type=minecraft&username=Notch
 {"username":"Notch","id":"069a79f444e94726a5befca90e38aaf5","avatar":"https:\/\/crafatar.com\/avatars069a79f444e94726a5befca90e38aaf5"}
 ```
 
+
+# Overwolf-Tech-Task
+Submission made by Olumuyiwa Akinyemi for the Overwolf tech task
+

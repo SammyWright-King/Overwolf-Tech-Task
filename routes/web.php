@@ -13,3 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/lookup', [\App\Http\Controllers\LookupController::class, 'lookup']);
+
+
+Route::get("/", function (){
+    return "OK";
+});
+
